@@ -5,12 +5,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.bridge.androidtechnicaltest.R
 import com.bridge.androidtechnicaltest.db.Pupil
+import com.bridge.androidtechnicaltest.ui.extensions.NavigateArguments
+import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.fragment_pupildetail.*
-import kotlinx.android.synthetic.main.fragment_pupillist.*
-import kotlinx.android.synthetic.main.list_item_pupil.*
+
 
 class PupilDetailFragment : Fragment() {
 
@@ -34,9 +34,13 @@ class PupilDetailFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+
+
         pupil?.let {
+            Picasso.get().load(it.image).into(pupil_image)
             pupil_name.text = it.name
             pupil_id.text = it.pupilId.toString()
+            country.text = it.country
         }
     }
 }

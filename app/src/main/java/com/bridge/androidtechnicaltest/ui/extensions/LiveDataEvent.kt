@@ -1,4 +1,4 @@
-package com.bridge.androidtechnicaltest.ui
+package com.bridge.androidtechnicaltest.ui.extensions
 open class LiveDataEvent<out T>(private val content: T) {
 
     private var hasBeenHandled = false

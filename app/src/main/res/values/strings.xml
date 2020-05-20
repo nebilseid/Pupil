@@ -8,6 +8,10 @@
 
     <string name="data_reset">Api Data Reset</string>
     <string name="data_reset_failed">Data Reset Failed</string>
-    <string name="name_hint">name_hint</string>
+    <string name="name_hint">name</string>
+    <string name="country_hint">country</string>
+
     <string name="pupilList">Pupil List</string>
+    <string name="btn_add_people">Add Pupil</string>
+    <string name="add_pupil_title">Add Pupil</string>
 </resources>

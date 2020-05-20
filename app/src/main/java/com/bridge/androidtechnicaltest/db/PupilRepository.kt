@@ -5,6 +5,7 @@ import io.reactivex.Single
 
 interface IPupilRepository {
     fun getPupils(): Single<PupilList>
+
 }
 
 class PupilRepository(val database: AppDatabase, val pupilApi: PupilApi) : IPupilRepository {
@@ -13,5 +14,8 @@ class PupilRepository(val database: AppDatabase, val pupilApi: PupilApi) : IPupi
         database.pupilDao.pupils.map {
             PupilList(it)
         }
+
     }
+
 }
+

@@ -6,6 +6,8 @@ import android.view.MenuItem
 import androidx.annotation.StringRes
 import androidx.appcompat.app.AppCompatActivity
 import com.bridge.androidtechnicaltest.R
+import com.bridge.androidtechnicaltest.ui.extensions.LiveDataEventObserver
+import com.bridge.androidtechnicaltest.ui.extensions.applyToolbarUp
 import kotlinx.android.synthetic.main.activity_main.*
 import org.koin.android.viewmodel.ext.android.viewModel
 
@@ -29,12 +31,11 @@ class MainActivity : AppCompatActivity() {
         mainActivityViewModel.getContentObservable().observe(this, LiveDataEventObserver { navigate(it) })
 
 
-     /*   fb_add_pupil.setOnClickListener {
+        fb_add_pupil.setOnClickListener {
             val fm = supportFragmentManager
-            fm.beginTransaction()
-                    .add(R.id.container, PupilListFragment())
+            fm.beginTransaction().replace(R.id.container,PupilAddFragment())
                     .commit()
-        }*/
+        }
     }
 
     private fun navigate(it: MainActivityViewModel.Navigation) {
@@ -61,6 +62,11 @@ class MainActivity : AppCompatActivity() {
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.main_menu, menu)
         return true
+    }
+    override fun onBackPressed() {
+        val fm = supportFragmentManager
+        fm.beginTransaction().replace(R.id.container,PupilListFragment())
+                .commit()
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {

@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.bridge.androidtechnicaltest.db.Pupil
+import com.bridge.androidtechnicaltest.ui.extensions.LiveDataEvent
 
 class MainActivityViewModel : ViewModel() {
     private val contentLiveData = MutableLiveData<LiveDataEvent<Navigation>>()

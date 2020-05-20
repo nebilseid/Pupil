@@ -9,8 +9,9 @@
 
 	<ImageView
 		android:id="@+id/pupil_image"
-		android:layout_width="80dp"
-		android:layout_height="80dp"/>
+		android:layout_width="110dp"
+		android:layout_height="110dp"
+		android:layout_marginBottom="10dp"/>
 
 	<LinearLayout
 		android:layout_width="match_parent"

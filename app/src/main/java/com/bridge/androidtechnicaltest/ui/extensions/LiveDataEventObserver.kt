@@ -1,4 +1,4 @@
-package com.bridge.androidtechnicaltest.ui
+package com.bridge.androidtechnicaltest.ui.extensions
 
 import androidx.lifecycle.Observer
 

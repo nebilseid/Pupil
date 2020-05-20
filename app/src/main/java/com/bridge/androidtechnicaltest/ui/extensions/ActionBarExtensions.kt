@@ -1,4 +1,4 @@
-package com.bridge.androidtechnicaltest.ui
+package com.bridge.androidtechnicaltest.ui.extensions
 
 import androidx.annotation.DrawableRes
 import androidx.appcompat.app.ActionBar
