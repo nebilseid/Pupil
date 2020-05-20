@@ -1,26 +1,35 @@
 package com.bridge.androidtechnicaltest.ui
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.bridge.androidtechnicaltest.db.Pupil
+import com.bridge.androidtechnicaltest.db.IPupilRepository
 import com.bridge.androidtechnicaltest.db.PupilList
 import com.bridge.androidtechnicaltest.db.PupilRepository
+import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
+import io.reactivex.schedulers.Schedulers
 
-class PupilViewModel constructor(private val repository: PupilRepository) : ViewModel() {
+class PupilViewModel(private val repository: IPupilRepository) : ViewModel() {
 
     private val disposable = CompositeDisposable()
-    val pupilViewModel: MutableLiveData<PupilList> = MutableLiveData()
-    private val error: MutableLiveData<String> = MutableLiveData()
+
+    private val loadingLiveData = MutableLiveData<Boolean>()
+    val pupilContentLiveData = MutableLiveData<PupilList>()
+    private val errorLiveData: MutableLiveData<String> = MutableLiveData()
 
     fun getPupils() {
         disposable.add(
-                repository.pupilApi.getPupils()
+                repository.getPupils()
+                        .subscribeOn(Schedulers.io())
+                        .observeOn(AndroidSchedulers.mainThread())
+                        .doOnSubscribe { loadingLiveData.value = true }
+                        .doOnEvent { _, _ -> loadingLiveData.value = false }
                         .subscribe({
                             if (it.items.isEmpty()) {
-                                error.value = "No data found"
+                                errorLiveData.value = "No data found"
                             } else {
-                                pupilViewModel.value = it
+                                pupilContentLiveData.value = it
                             }
                         }, {
                             it.printStackTrace()
@@ -28,10 +37,12 @@ class PupilViewModel constructor(private val repository: PupilRepository) : View
         )
     }
 
+
     override fun onCleared() {
         disposable.clear()
         super.onCleared()
     }
-
+    fun getLoadingObservable(): LiveData<Boolean> = loadingLiveData
+    fun getPupilsContentObservable(): MutableLiveData<PupilList> = pupilContentLiveData
 
 }

@@ -9,4 +9,5 @@
     <string name="data_reset">Api Data Reset</string>
     <string name="data_reset_failed">Data Reset Failed</string>
     <string name="name_hint">name_hint</string>
+    <string name="pupilList">Pupil List</string>
 </resources>

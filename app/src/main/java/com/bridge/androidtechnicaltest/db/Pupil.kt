@@ -1,11 +1,14 @@
 package com.bridge.androidtechnicaltest.db
 
+import android.os.Parcelable
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import kotlinx.android.parcel.Parcelize
 
 @Entity(tableName = "Pupils")
-class Pupil(
+@Parcelize
+data class Pupil(
         @PrimaryKey
         @ColumnInfo(name = "pupil_id")
         val pupilId: Long,
@@ -24,7 +27,7 @@ class Pupil(
 
         @ColumnInfo(name = "longitude")
         val longitude: Double
-)
+) : Parcelable
 
 class PupilList(
         val items: MutableList<Pupil>
