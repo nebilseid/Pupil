@@ -25,7 +25,7 @@ class MainActivity : AppCompatActivity() {
         if (savedInstanceState == null) {
             val fm = supportFragmentManager
             fm.beginTransaction()
-                    .add(R.id.container, PupilListFragment(),PupilListFragment.TAG)
+                    .add(R.id.container, PupilListFragment(), PupilListFragment.TAG)
                     .addToBackStack(PupilListFragment.TAG)
                     .commit()
 
@@ -38,6 +38,8 @@ class MainActivity : AppCompatActivity() {
             val fm = supportFragmentManager
             fm.beginTransaction().replace(R.id.container, PupilAddFragment())
                     .commit()
+            toolbar_pupil_list.setTitle(R.string.toolbar_add_pupil_title)
+
         }
     }
 
@@ -47,6 +49,7 @@ class MainActivity : AppCompatActivity() {
                 val fm = supportFragmentManager
                 fm.beginTransaction().replace(R.id.container, PupilDetailFragment.newInstance(it.pupil))
                         .commit()
+                toolbar_pupil_list.setTitle(R.string.pupil_detail_title)
 
             }
         }

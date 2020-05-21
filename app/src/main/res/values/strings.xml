@@ -6,6 +6,8 @@
     <string name="pupil_detail_country">Country</string>
     <string name="sync">Sync</string>
 
+
+
     <string name="data_reset">Api Data Reset</string>
     <string name="data_reset_failed">Data Reset Failed</string>
     <string name="name_hint">name</string>
@@ -14,10 +16,17 @@
     <string name="longitude_hint">longitude</string>
     <string name="country_hint">country</string>
 
+    <string name="image_url_length_error">image URL length must be 12+ characters</string>
+
+
+
     <string name="error_ok">OK</string>
     <string name="error_cancel">Cancel</string>
 
     <string name="pupilList">Pupil List</string>
     <string name="btn_add_people">Add Pupil</string>
     <string name="add_pupil_title">Add Pupil</string>
+    <string name="pupil_detail_title">Pupil Details</string>
+    <string name="toolbar_add_pupil_title">Add Pupil</string>
+    <string name="url_length_error">url length must be a minimum of 12 characters.</string>
 </resources>

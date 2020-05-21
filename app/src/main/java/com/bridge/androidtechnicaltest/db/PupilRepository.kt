@@ -11,13 +11,11 @@ interface IPupilRepository {
 class PupilRepository(val database: AppDatabase, val pupilApi: PupilApi) : IPupilRepository {
 
     override fun getPupils(): Single<PupilList> = pupilApi.getPupils(1)
+          /*  .onErrorResumeNext(database.pupilDao.pupils.map {
+                PupilList(it)
+            })*/
+
     override fun postPupils(pupil: Pupil): Single<Pupil> = pupilApi.addPupil(pupil)
-
-    /*.onErrorResumeNext {
-        database.pupilDao.pupils.map {
-            PupilList(it)
-        }}*/
-
 
 
 }

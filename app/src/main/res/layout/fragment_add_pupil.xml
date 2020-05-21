@@ -13,9 +13,14 @@
         android:layout_margin="15dp"
         android:text="@string/add_pupil_title"
         android:textSize="20sp" />
-
+    <ProgressBar
+        android:id="@+id/pb_pupil_add"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center" />
 
     <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_pupil_name"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -27,6 +32,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="5dp"
+            android:inputType="text"
             android:layout_gravity="center_horizontal|start"
             android:labelFor="@+id/til_pupil_name" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -45,28 +51,31 @@
             android:id="@+id/tiet_country"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:inputType="text"
             android:layout_gravity="center_horizontal|start"
             android:labelFor="@+id/til_pupil_country" />
     </com.google.android.material.textfield.TextInputLayout>
 
-
     <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_pupil_image_url"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:accessibilityLiveRegion="polite"
-        android:hint="@string/image_url_hint">
+        android:hint="@string/image_url_hint"
+        app:errorEnabled="true">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/tiet_pupil_image_url"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="5dp"
+            android:inputType="text"
             android:layout_gravity="center_horizontal|start"
             android:labelFor="@+id/til_pupil_image_url" />
     </com.google.android.material.textfield.TextInputLayout>
-
     <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_pupil_latitude"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -85,6 +94,7 @@
 
 
     <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_pupil_longitude"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -102,12 +112,13 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
-        android:id="@+id/bt_login_guest_continue"
+        android:id="@+id/bt_add_pupil"
         style="?android:borderlessButtonStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/btn_add_people"
         app:backgroundTint="@color/colorAccent" />
+
 
 
 </LinearLayout>
