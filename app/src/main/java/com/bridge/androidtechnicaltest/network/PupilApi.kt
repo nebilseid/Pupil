@@ -4,15 +4,13 @@ import com.bridge.androidtechnicaltest.db.Pupil
 import com.bridge.androidtechnicaltest.db.PupilList
 import io.reactivex.Single
 import retrofit2.Call
-import retrofit2.http.Body
-import retrofit2.http.GET
-import retrofit2.http.POST
-import retrofit2.http.Query
+import retrofit2.http.*
 
 interface PupilApi {
     @GET("pupils")
     fun getPupils(@Query("page") page: Int = 1): Single<PupilList>
 
-    @POST("users")
-    fun addPupil(@Body pupil: Pupil): Call<Pupil>
+    @Headers("Content-Type: application/json-patch+json")
+    @POST("pupils")
+    fun addPupil(@Body pupil: Pupil) : Single<Pupil>
 }

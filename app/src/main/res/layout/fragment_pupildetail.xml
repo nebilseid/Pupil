@@ -9,9 +9,9 @@
 
 	<ImageView
 		android:id="@+id/pupil_image"
-		android:layout_width="110dp"
-		android:layout_height="110dp"
-		android:layout_marginBottom="10dp"/>
+		android:layout_width="200dp"
+		android:layout_height="200dp"
+		android:layout_marginBottom="15dp"/>
 
 	<LinearLayout
 		android:layout_width="match_parent"
@@ -29,6 +29,7 @@
 			style="@style/TextDetail"
 			android:id="@+id/pupil_id"
 			android:layout_width="0dp"
+			android:textStyle="bold"
 			android:layout_height="wrap_content"
 			android:layout_weight="1"
 			tools:text="123"/>
@@ -51,6 +52,7 @@
 			style="@style/TextDetail"
 			android:id="@+id/pupil_name"
 			android:layout_width="0dp"
+			android:textStyle="bold"
 			android:layout_height="wrap_content"
 			android:layout_weight="1"
 			tools:text="Abigayle Quigley"/>
@@ -73,6 +75,7 @@
 			style="@style/TextDetail"
 			android:id="@+id/country"
 			android:layout_width="0dp"
+			android:textStyle="bold"
 			android:layout_height="wrap_content"
 			android:layout_weight="1"
 			tools:text="India"/>

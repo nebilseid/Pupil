@@ -3,6 +3,7 @@ package com.bridge.androidtechnicaltest.ui
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
 import androidx.annotation.StringRes
 import androidx.appcompat.app.AppCompatActivity
 import com.bridge.androidtechnicaltest.R
@@ -24,8 +25,10 @@ class MainActivity : AppCompatActivity() {
         if (savedInstanceState == null) {
             val fm = supportFragmentManager
             fm.beginTransaction()
-                    .add(R.id.container, PupilListFragment())
+                    .add(R.id.container, PupilListFragment(),PupilListFragment.TAG)
+                    .addToBackStack(PupilListFragment.TAG)
                     .commit()
+
         }
 
         mainActivityViewModel.getContentObservable().observe(this, LiveDataEventObserver { navigate(it) })
@@ -33,7 +36,7 @@ class MainActivity : AppCompatActivity() {
 
         fb_add_pupil.setOnClickListener {
             val fm = supportFragmentManager
-            fm.beginTransaction().replace(R.id.container,PupilAddFragment())
+            fm.beginTransaction().replace(R.id.container, PupilAddFragment())
                     .commit()
         }
     }
@@ -42,31 +45,25 @@ class MainActivity : AppCompatActivity() {
         when (it) {
             is MainActivityViewModel.Navigation.ToPupilDetails -> {
                 val fm = supportFragmentManager
-                fm.beginTransaction().replace(R.id.container,PupilDetailFragment.newInstance(it.pupil))
+                fm.beginTransaction().replace(R.id.container, PupilDetailFragment.newInstance(it.pupil))
                         .commit()
 
             }
         }
 
     }
+
     private fun setupActionBar(@StringRes titleId: Int) {
         setSupportActionBar(toolbar_pupil_list)
         supportActionBar?.run {
-            applyToolbarUp(showTitle = true)
             setTitle(titleId)
         }
     }
 
 
-
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.main_menu, menu)
         return true
-    }
-    override fun onBackPressed() {
-        val fm = supportFragmentManager
-        fm.beginTransaction().replace(R.id.container,PupilListFragment())
-                .commit()
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {

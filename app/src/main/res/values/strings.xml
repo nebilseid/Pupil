@@ -9,7 +9,13 @@
     <string name="data_reset">Api Data Reset</string>
     <string name="data_reset_failed">Data Reset Failed</string>
     <string name="name_hint">name</string>
+    <string name="image_url_hint">image url</string>
+    <string name="latitude_hint">latitude</string>
+    <string name="longitude_hint">longitude</string>
     <string name="country_hint">country</string>
+
+    <string name="error_ok">OK</string>
+    <string name="error_cancel">Cancel</string>
 
     <string name="pupilList">Pupil List</string>
     <string name="btn_add_people">Add Pupil</string>

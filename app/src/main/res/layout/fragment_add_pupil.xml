@@ -46,8 +46,59 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal|start"
-            android:labelFor="@+id/til_country" />
+            android:labelFor="@+id/til_pupil_country" />
+    </com.google.android.material.textfield.TextInputLayout>
 
+
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:accessibilityLiveRegion="polite"
+        android:hint="@string/image_url_hint">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/tiet_pupil_image_url"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:layout_gravity="center_horizontal|start"
+            android:labelFor="@+id/til_pupil_image_url" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:accessibilityLiveRegion="polite"
+        android:hint="@string/latitude_hint">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/tiet_pupil_latitude"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:inputType="numberDecimal"
+            android:layout_gravity="center_horizontal|start"
+            android:labelFor="@+id/til_pupil_latitude" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:accessibilityLiveRegion="polite"
+        android:hint="@string/longitude_hint">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/tiet_pupil_longitude"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:inputType="numberDecimal"
+            android:layout_gravity="center_horizontal|start"
+            android:labelFor="@+id/til_pupil_longitude" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
@@ -55,7 +106,6 @@
         style="?android:borderlessButtonStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
         android:text="@string/btn_add_people"
         app:backgroundTint="@color/colorAccent" />
 

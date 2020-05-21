@@ -2,10 +2,12 @@ package com.bridge.androidtechnicaltest.di
 
 import android.content.Context
 import androidx.room.Room
+import com.bridge.androidtechnicaltest.BuildConfig
 import com.bridge.androidtechnicaltest.db.AppDatabase
 import com.bridge.androidtechnicaltest.network.PupilApi
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
@@ -30,6 +32,11 @@ object PupilAPIFactory {
                     .addHeader("User-Agent", userAgent)
                     .build()
             chain.proceed(newRequest)
+        }
+        val httpLoggingInterceptor = HttpLoggingInterceptor(HttpLoggingInterceptor.Logger.DEFAULT)
+        if (BuildConfig.DEBUG) {
+            httpLoggingInterceptor.level = HttpLoggingInterceptor.Level.BODY
+            builder.addInterceptor(httpLoggingInterceptor)
         }
         builder.addInterceptor(requestInterceptor)
 
