@@ -115,7 +115,8 @@
         android:id="@+id/bt_add_pupil"
         style="?android:borderlessButtonStyle"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:layout_height="@dimen/submit_button_height"
         android:text="@string/btn_add_people"
         app:backgroundTint="@color/colorAccent" />
 

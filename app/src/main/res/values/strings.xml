@@ -7,6 +7,9 @@
     <string name="sync">Sync</string>
 
 
+    <string name="label_pupil_name">Name :  %1$s</string>
+    <string name="label_pupil_id">ID :  %1$s</string>
+    <string name="label_pupil_country">Country :  %1$s</string>
 
     <string name="data_reset">Api Data Reset</string>
     <string name="data_reset_failed">Data Reset Failed</string>

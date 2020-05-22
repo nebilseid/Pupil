@@ -37,9 +37,8 @@ class MainActivity : AppCompatActivity() {
         fb_add_pupil.setOnClickListener {
             val fm = supportFragmentManager
             fm.beginTransaction().replace(R.id.container, PupilAddFragment())
+                    .addToBackStack(PupilAddFragment.TAG)
                     .commit()
-            toolbar_pupil_list.setTitle(R.string.toolbar_add_pupil_title)
-
         }
     }
 
@@ -48,8 +47,8 @@ class MainActivity : AppCompatActivity() {
             is MainActivityViewModel.Navigation.ToPupilDetails -> {
                 val fm = supportFragmentManager
                 fm.beginTransaction().replace(R.id.container, PupilDetailFragment.newInstance(it.pupil))
+                        .addToBackStack(PupilDetailFragment.TAG)
                         .commit()
-                toolbar_pupil_list.setTitle(R.string.pupil_detail_title)
 
             }
         }

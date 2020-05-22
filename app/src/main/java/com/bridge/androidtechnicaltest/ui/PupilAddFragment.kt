@@ -6,24 +6,23 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import com.bridge.androidtechnicaltest.R
 import com.bridge.androidtechnicaltest.db.Pupil
 import com.google.android.material.textfield.TextInputEditText
-import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_add_pupil.*
-import kotlinx.android.synthetic.main.fragment_pupillist.*
 import org.koin.android.ext.android.inject
-
 
 class PupilAddFragment : Fragment() {
 
+    companion object {
+        const val TAG = "ADD_PUPIL_FRAGMENT"
+    }
+
 
     private val pupilAddViewModel: PupilAddViewModel by inject()
-    private val pupilViewModel: PupilViewModel by inject()
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_add_pupil, container, false)
     }
@@ -38,7 +37,6 @@ class PupilAddFragment : Fragment() {
             if (img_url.length < 12) {
                 tiet_pupil_image_url.error = getString(R.string.image_url_hint)
             } else {
-
                 val pupil = Pupil(
                         pupilId = 0,
                         name = til_pupil_name.editText?.text.toString(),

@@ -5,7 +5,6 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.bridge.androidtechnicaltest.db.IPupilRepository
 import com.bridge.androidtechnicaltest.db.PupilList
-import com.bridge.androidtechnicaltest.db.PupilRepository
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers

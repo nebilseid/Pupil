@@ -7,8 +7,9 @@ import androidx.room.PrimaryKey
 import com.google.android.material.textfield.TextInputEditText
 import kotlinx.android.parcel.Parcelize
 
-@Entity(tableName = "Pupils")
+
 @Parcelize
+@Entity(tableName = "Pupils")
 data class Pupil(
         @PrimaryKey
         @ColumnInfo(name = "pupil_id")

@@ -34,13 +34,11 @@ class PupilDetailFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-
-
         pupil?.let {
             Picasso.get().load(it.image).into(pupil_image)
-            pupil_name.text = it.name
-            pupil_id.text = it.pupilId.toString()
-            country.text = it.country
+            tv_pupil_id.text = getString(R.string.label_pupil_id,it.pupilId.toString())
+            tv_pupil_name.text = getString(R.string.label_pupil_name,it.name.toString())
+            tv_pupil_country.text = getString(R.string.label_pupil_country,it.country.toString())
         }
     }
 }
