@@ -35,7 +35,7 @@ class PupilAddFragment : Fragment() {
         bt_add_pupil.setOnClickListener {
             val img_url = til_pupil_image_url.editText?.text.toString()
             if (img_url.length < 12) {
-                tiet_pupil_image_url.error = getString(R.string.image_url_hint)
+                tiet_pupil_image_url.error = getString(R.string.image_url_length_error)
             } else {
                 val pupil = Pupil(
                         pupilId = 0,

@@ -8,7 +8,7 @@ import androidx.fragment.app.Fragment
 import com.bridge.androidtechnicaltest.R
 import com.bridge.androidtechnicaltest.db.Pupil
 import com.bridge.androidtechnicaltest.ui.extensions.NavigateArguments
-import com.squareup.picasso.Picasso
+import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.fragment_pupildetail.*
 
 
@@ -35,10 +35,11 @@ class PupilDetailFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         pupil?.let {
-            Picasso.get().load(it.image).into(pupil_image)
-            tv_pupil_id.text = getString(R.string.label_pupil_id,it.pupilId.toString())
-            tv_pupil_name.text = getString(R.string.label_pupil_name,it.name.toString())
-            tv_pupil_country.text = getString(R.string.label_pupil_country,it.country.toString())
+            val url: String = it.image
+            Glide.with(this).load(it.image).into(pupil_image);
+            tv_pupil_id.text = getString(R.string.label_pupil_id, it.pupilId.toString())
+            tv_pupil_name.text = getString(R.string.label_pupil_name, it.name)
+            tv_pupil_country.text = getString(R.string.label_pupil_country, it.country)
         }
     }
 }
