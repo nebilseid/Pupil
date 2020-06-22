@@ -32,6 +32,16 @@ class PupilAddFragment : Fragment() {
         val lat: TextInputEditText = view.findViewById(R.id.tiet_pupil_latitude)
         pb_pupil_add.visibility = View.GONE
 
+        pupilAddViewModel.getLoadingObservable().observe(this, Observer {
+            loading(it)
+        })
+        pupilAddViewModel.getPupilsContentObservable().observe(this, Observer {
+            //TODO
+        })
+        pupilAddViewModel.getErrorObservable().observe(this, Observer {
+            showError(it)
+        })
+
         bt_add_pupil.setOnClickListener {
             val img_url = til_pupil_image_url.editText?.text.toString()
             if (img_url.length < 12) {
@@ -45,15 +55,6 @@ class PupilAddFragment : Fragment() {
                         latitude = til_pupil_latitude.editText?.text.toString().toDouble(),
                         longitude = til_pupil_longitude.editText?.text.toString().toDouble())
 
-                pupilAddViewModel.getLoadingObservable().observe(this, Observer {
-                    loading(it)
-                })
-                pupilAddViewModel.getPupilsContentObservable().observe(this, Observer {
-                    //TODO
-                })
-                pupilAddViewModel.getErrorObservable().observe(this, Observer {
-                    showError(it)
-                })
                 pupilAddViewModel.addPupil(pupil)
             }
 
@@ -65,17 +66,17 @@ class PupilAddFragment : Fragment() {
     }
 
     private fun showError(message: String) {
-        val alertDialog: AlertDialog? = activity?.let {
+        activity?.let {
             val builder = AlertDialog.Builder(it)
             builder.apply {
-                setPositiveButton(R.string.error_ok,
-                        DialogInterface.OnClickListener { dialog, id ->
-                            dialog.dismiss()
-                        })
-                setNegativeButton(R.string.error_cancel,
-                        DialogInterface.OnClickListener { dialog, id ->
-                            dialog.cancel()
-                        })
+                setPositiveButton(R.string.error_ok
+                ) { dialog, id ->
+                    dialog.dismiss()
+                }
+                setNegativeButton(R.string.error_cancel
+                ) { dialog, id ->
+                    dialog.cancel()
+                }
             }
             builder.setTitle("error")
             builder.setMessage(message)
